@@ -24,7 +24,11 @@ namespace Scripts {
         }
 
         public static void Load(int stage) {
-            SceneManager.LoadScene(stage % 3);
+            stage = stage % 3;
+            if (stage == 0) {
+                stage = 1;
+            }
+            SceneManager.LoadScene(stage);
         }
     }    
 }
