@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -15,23 +14,12 @@ public class PlayerScript : MonoBehaviour {
     private float moveX;
     private float moveY;
 
-    public static int GetStage() {
-        return PlayerPrefs.GetInt("PLAYER_STAGE");
-    }
-
-    public static void NewStage()
-    {
-        int stage = GetStage() + 1;
-        PlayerPrefs.SetInt("PLAYER_STAGE", stage);
-        PlayerPrefs.Save();
-        SceneManager.LoadScene(stage % 2);
-    }
-
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
         spriteRender = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+
 	}
 	
 	// Update is called once per frame
