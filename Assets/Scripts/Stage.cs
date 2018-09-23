@@ -20,11 +20,11 @@ namespace Scripts {
         {
             int stage = Get() + 1;
             Set(stage);
-            Load(stage % 3);
+            Load(stage);
         }
 
         public static void Load(int stage) {
-            SceneManager.LoadScene(stage);
+            SceneManager.LoadScene(stage % 3);
         }
     }    
 }

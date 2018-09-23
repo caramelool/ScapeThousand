@@ -9,8 +9,9 @@ public class InitialScript : MonoBehaviour {
 	void Start () {
         int stage = Stage.Get();
         if (stage <= 0) {
-            stage = 1;
+            Stage.New();
+		} else {
+            Stage.Load(stage);    
         }
-        SceneManager.LoadScene(stage);
 	}
 }
