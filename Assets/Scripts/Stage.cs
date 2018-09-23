@@ -5,29 +5,22 @@ using UnityEngine.SceneManagement;
 namespace Scripts {
     public class Stage
     {
-        public static int Get()
+        private static int Get()
         {
             return PlayerPrefs.GetInt("PLAYER_STAGE");
         }
 
-        public static void Set(int stage)
+        public static void Save()
         {
+            int stage = Get() + 1;
             PlayerPrefs.SetInt("PLAYER_STAGE", stage);
             PlayerPrefs.Save();
         }
 
-        public static void New()
-        {
-            int stage = Get() + 1;
-            Set(stage);
-            Load(stage);
-        }
-
-        public static void Load(int stage) {
-            stage = stage % 3;
-            if (stage == 0) {
-                stage = 1;
-            }
+        public static void Load() {
+            int stage = Get();
+            stage = (stage % 3) + 1;
+            MonoBehaviour.print("Stage " + stage);
             SceneManager.LoadScene(stage);
         }
     }    

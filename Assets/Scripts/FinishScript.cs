@@ -10,7 +10,7 @@ public class FinishScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Stage.New();
-        //SceneManager.LoadScene(scene.name);
+        Stage.Save();
+        Stage.Load();
     }
 }
